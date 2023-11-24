@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import ActualiteRoute from '../routes/ActualiteRoute.js';
-import ConseilRoute from '../routes/ConseilRoute.js';
+import ActualiteRoute from './routes/ActualiteRoute.js';
+import ConseilRoute from './routes/ConseilRoute.js';
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 import express from 'express';
@@ -27,7 +27,9 @@ db.connect(function(err) {
     }
 })
 const app = express();
-
+app.get('/', (req, res) => {
+    res.send('backend!');
+  });
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'))
