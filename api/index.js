@@ -27,9 +27,7 @@ db.connect(function(err) {
     }
 })
 const app = express();
-app.get('/', (req, res) => {
-    res.send('backend!');
-  });
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'))
