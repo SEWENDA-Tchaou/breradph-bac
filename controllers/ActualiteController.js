@@ -30,7 +30,8 @@ export const getContentById = async(req, res) => {
 
 export const saveContent = (req, res) => {
     if(req.files === null) return res.status(400).json({msg: "Le fichier n'est pas charger"});
-    // texte, theme1, lireTout1 sont des values dans les inputs du form
+    try{
+        // texte, theme1, lireTout1 sont des values dans les inputs du form
     const titre = req.body.texte;
     const theme = req.body.theme1;
     const themeTout = req.body.lireTout1;
@@ -51,6 +52,10 @@ export const saveContent = (req, res) => {
             console.log(error.message);
         }
     })
+    }catch(error){
+        console.error("Erreur lors de la création d'une actualité :", error);
+        return res.status(500).json({ msg: "Erreur de serveur lors de la création d'une actualité." });
+    }
 }
 
 export const updateContent = async(req, res) => {
