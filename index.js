@@ -42,14 +42,7 @@ app.use(cors(
         // allowedHeaders: ['*'],
     }
 ));
-// Configuration du middleware multer
-const storage = multer.memoryStorage(); // Vous pouvez personnaliser le stockage selon vos besoins
-const upload = multer({ storage: storage });
 
-app.use(upload.single('file'));
-
-// Utilisation du middleware pour les téléchargements de fichiers
-app.use(upload.single('file'));
 app.use(ActualiteRoute);
 app.use(ConseilRoute);
 
@@ -99,17 +92,17 @@ app.get("/logout", (req, res) => {
 
 // -----
 
-// const storage = multer.diskStorage({
-//     destination: function(req, file, cb) {
-//       return cb(null, "./public/images")
-//     },
-//     filename: function (req, file, cb) {
-//       return cb(null, `${Date.now()}_${file.originalname}`)
-//     }
-//   })
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      return cb(null, "./public/images")
+    },
+    filename: function (req, file, cb) {
+      return cb(null, `${Date.now()}_${file.originalname}`)
+    }
+  })
 
   
-// const upload = multer({storage})
+const upload = multer({storage})
 
 app.post('/create',upload.single('file'), (req, res) => {
     const sql = "INSERT INTO image (`name`,`titre`, `image`) VALUES (?)"; 
