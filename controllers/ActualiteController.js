@@ -45,6 +45,7 @@ export const saveContent = (req, res) => {
     if(fileSize > 5000000) return res.status(422).json({msg: "L'image doit avoir une capacite inferieur a 5MB"});
     file.mv(`./public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
+        console.error("Erreur lors du déplacement du fichier :", err);
         try {
             await Crud.create({titre: titre, theme: theme, themeTout: themeTout, image: fileName, url: url});
             res.status(201).json({msg: "Votre contenu a été crée avec succès "})
