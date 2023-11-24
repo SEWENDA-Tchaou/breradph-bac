@@ -1,13 +1,6 @@
 import Crud from "../models/ActualiteModel.js";
 import path from 'path';
-import multer from 'multer';
 import fs from 'fs';
-
-const storage = multer.memoryStorage(); // Vous pouvez personnaliser le stockage selon vos besoins
-const upload = multer({ storage: storage });
-
-// Utilisez le middleware pour les téléchargements de fichiers
-app.use(upload.single('file')); // En supposant que le nom de votre champ d'entrée est 'file'
 
 export const getContents = async(req, res) => {
    try {
