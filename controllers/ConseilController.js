@@ -1,4 +1,4 @@
-import Crud from "../models/ConseilModel.js";
+const Crud = require ("../models/ConseilModel.js");
 
 
 export const getContents = async(req, res) => {

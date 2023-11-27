@@ -1,26 +1,26 @@
-// import { Sequelize } from "sequelize";
-// import db from "../config/Database.js";
+import { Sequelize } from "sequelize";
+import db from "../config/Database.js";
 
-// const {DataTypes} = Sequelize;
+const {DataTypes} = Sequelize;
 
-// const Crud = db.define('crudconseils', {
-//     titre: {
-//         type: DataTypes.STRING
-//     },
-//     conseil1: {
-//         type: DataTypes.STRING
-//     },
-//     conseil2: {
-//         type: DataTypes.STRING
-//     },
-//     conseil3:{ 
-//         type: DataTypes.STRING
-//     }
+const Crud = db.define('crudconseils', {
+    titre: {
+        type: DataTypes.STRING
+    },
+    conseil1: {
+        type: DataTypes.STRING
+    },
+    conseil2: {
+        type: DataTypes.STRING
+    },
+    conseil3:{ 
+        type: DataTypes.STRING
+    }
 
-// });
+});
 
-// export default Crud;
+export default Crud;
 
-// (async() => {
-//     await db.sync();
-// }) ();
+(async() => {
+    await db.sync();
+}) ();

@@ -1,4 +1,4 @@
-import Crud from "../models/ActualiteModel.js";
+const Crud = require('../controllers/ConseilController');
 import path from 'path';
 import fs from 'fs';
 
