@@ -8,6 +8,9 @@ import express from 'express';
 import multer from 'multer'
 import mysql from 'mysql';
 import cors from 'cors';
+
+const app = express();
+
 const db = mysql.createConnection({
     host: process.env.DB_HOSTNAME,
     user: process.env.DB_USERNAME,
@@ -26,7 +29,6 @@ db.connect(function(err) {
         console.log("Connected");
     }
 })
-const app = express();
 app.get('/', (req, res) => {
     res.send('backend!');
   });
