@@ -21,6 +21,3 @@ const Crud = db.define('crudconseils', {
 
 export default Crud;
 
-(async() => {
-    await db.sync();
-}) ();

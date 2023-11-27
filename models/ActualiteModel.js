@@ -24,6 +24,3 @@ const Crud = db.define('actualites', {
 
 export default Crud;
 
-(async() => {
-    await db.sync();
-}) ();
