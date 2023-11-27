@@ -1,4 +1,5 @@
-import Crud from "../models/ConseilModel.js";
+// import Crud from "../models/ConseilModel.js";
+import Crud from "../models/ActualiteModel";
 
 
 export const getContents = async(req, res) => {
