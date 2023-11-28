@@ -8,28 +8,27 @@ import express from 'express';
 import multer from 'multer'
 import mysql from 'mysql';
 import cors from 'cors';
-import db from "./config/Database.js"
 
 const app = express();
 
-// const db = mysql.createConnection({
-//     host: process.env.DB_HOSTNAME,
-//     user: process.env.DB_USERNAME,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_DBNAME
-//     // host: 'localhost',
-//     // user: 'root',
-//     // password: '',
-//     // database: 'crud_react'
-// })
+const db = mysql.createConnection({
+    host: process.env.DB_HOSTNAME,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DBNAME
+    // host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'crud_react'
+})
 
-// db.connect(function(err) {
-//     if(err) {
-//         console.log("Error in Connection");
-//     } else {
-//         console.log("Connected");
-//     }
-// })
+db.connect(function(err) {
+    if(err) {
+        console.log("Error in Connection");
+    } else {
+        console.log("Connected");
+    }
+})
 app.get('/', (req, res) => {
     res.send('backend!');
   });
@@ -48,7 +47,6 @@ app.use(cors(
 
 app.use(ActualiteRoute);
 app.use(ConseilRoute);
-app.use(db)
 
 
 
