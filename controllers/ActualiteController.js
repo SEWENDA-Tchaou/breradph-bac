@@ -1,4 +1,4 @@
-import Crud from "../models/ActualiteModel.js";
+// import Crud from "../models/ActualiteModel.js";
 import path from 'path';
 import fs from 'fs';
 
