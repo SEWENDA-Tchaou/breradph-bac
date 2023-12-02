@@ -12,14 +12,14 @@ import cors from 'cors';
 const app = express();
 
 const db = mysql.createConnection({
-    host: process.env.DB_HOSTNAME,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DBNAME
-    // host: 'localhost',
-    // user: 'root',
-    // password: '',
-    // database: 'crud_react'
+    // host: process.env.DB_HOSTNAME,
+    // user: process.env.DB_USERNAME,
+    // password: process.env.DB_PASSWORD,
+    // database: process.env.DB_DBNAME
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'crud_react'
 })
 
 db.connect(function(err) {
@@ -38,7 +38,7 @@ app.use(express.static('public'))
 app.use(cors(
     {
         // origin: ['header'],
-        origin: 'http://localhost:5173',
+        origin: 'https://breradph-frontend.vercel.app',
         methods: ['POST', 'GET', 'DELETE', 'PUT'],
         credentials: true
         // allowedHeaders: ['*'],
